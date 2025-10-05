@@ -138,13 +138,17 @@ export default function MBASInvestment() {
     setSlingModalOpen(false);
   };
 
+  // Fixed Apply Now function
+  const handleApplyNow = () => {
+    window.open('https://forms.zohopublic.com/anchorfitng1/form/RecruitmentForm/formperma/y3LpDxfwkExQg2gh_pnYHuf5CjToKESExIH88j5om38', '_blank', 'noopener,noreferrer');
+  };
+
   const Footer = () => (
     <footer className="relative bg-gradient-to-b from-gray-900 to-black py-20 px-4 border-t border-gray-800">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              {/* Footer Logo - Exactly like navigation */}
               <button onClick={() => scrollToSection('home')} className="flex items-center space-x-3 group">
                 <div className="relative">
                   <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
@@ -156,13 +160,11 @@ export default function MBASInvestment() {
                     />
                   </div>
                 </div>
-                
               </button>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               Empowering visionary entrepreneurs and innovative companies to transform emerging markets through strategic capital and operational excellence.
             </p>
-          
           </div>
   
           <div>
@@ -208,7 +210,6 @@ export default function MBASInvestment() {
             <p className="text-gray-400 text-sm">
               &copy; 2025 MBAS Investment Limited. All rights reserved.
             </p>
-
           </div>
         </div>
       </div>
@@ -227,38 +228,38 @@ export default function MBASInvestment() {
         />
         
         {/* Modal Content */}
-        <div className="relative w-full max-w-6xl max-h-[90vh] bg-gradient-to-br from-gray-900 to-black border border-yellow-500/30 rounded-3xl overflow-hidden flex flex-col">
+        <div className="relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-gray-900 to-black border border-yellow-500/30 rounded-3xl overflow-hidden flex flex-col">
           {/* Header */}
-          <div className="flex-shrink-0 p-8 border-b border-yellow-500/20 bg-gradient-to-r from-yellow-600/10 to-yellow-500/5">
+          <div className="flex-shrink-0 p-6 border-b border-yellow-500/20 bg-gradient-to-r from-yellow-600/10 to-yellow-500/5">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-600 to-yellow-500 rounded-2xl flex items-center justify-center">
-                  <GraduationCap className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-600 to-yellow-500 rounded-xl flex items-center justify-center">
+                  <GraduationCap className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-serif font-normal text-white">SLING Education Platform</h2>
+                  <h2 className="text-2xl font-serif font-normal text-white">SLING Education</h2>
                   <p className="text-yellow-400 font-sans font-medium">Active Project · Education Technology</p>
                 </div>
               </div>
               <button
                 onClick={closeSlingModal}
-                className="w-12 h-12 bg-black/50 border border-gray-600/30 rounded-xl flex items-center justify-center hover:bg-yellow-500/20 hover:border-yellow-500 transition-all duration-300"
+                className="w-10 h-10 bg-black/50 border border-gray-600/30 rounded-xl flex items-center justify-center hover:bg-yellow-500/20 hover:border-yellow-500 transition-all duration-300"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
             </div>
           </div>
 
           {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto">
-            <div className="grid lg:grid-cols-2 gap-8 p-8">
+            <div className="grid lg:grid-cols-2 gap-6 p-6">
               {/* Left Column */}
               <div className="space-y-6">
                 <div className="relative rounded-2xl overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop"
                     alt="SLING Education Platform"
-                    className="w-full h-64 object-cover"
+                    className="w-full h-48 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
@@ -281,7 +282,7 @@ export default function MBASInvestment() {
                     ].map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0" />
-                        <span className="text-gray-300 font-sans font-light">{feature}</span>
+                        <span className="text-gray-300 font-sans font-light text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -292,12 +293,12 @@ export default function MBASInvestment() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-serif font-normal mb-4 text-white">Project Overview</h3>
-                  <p className="text-gray-300 leading-relaxed mb-4 font-sans font-light">
+                  <p className="text-gray-300 leading-relaxed mb-4 font-sans font-light text-sm">
                     SLING Education represents our commitment to revolutionizing language learning through cutting-edge technology. 
                     This AI-powered platform connects Chinese students with qualified English tutors from Nigeria, creating a unique 
                     cultural exchange while delivering high-quality education.
                   </p>
-                  <p className="text-gray-300 leading-relaxed mb-4 font-sans font-light">
+                  <p className="text-gray-300 leading-relaxed mb-4 font-sans font-light text-sm">
                     Our platform leverages advanced machine learning algorithms to provide real-time feedback on pronunciation, 
                     grammar, and fluency, ensuring students receive personalized attention and measurable progress.
                   </p>
@@ -322,7 +323,7 @@ export default function MBASInvestment() {
 
                 <div className="bg-gradient-to-r from-yellow-600/10 to-yellow-500/10 border border-yellow-500/20 rounded-2xl p-6">
                   <h3 className="text-xl font-serif font-normal mb-3 text-yellow-400">Join Our Mission</h3>
-                  <p className="text-gray-300 leading-relaxed mb-4 font-sans font-light">
+                  <p className="text-gray-300 leading-relaxed mb-4 font-sans font-light text-sm">
                     We're looking for passionate English tutors to join our growing community. If you're dedicated to making a 
                     difference in students' lives while embracing cultural exchange, we'd love to have you on board.
                   </p>
@@ -330,22 +331,20 @@ export default function MBASInvestment() {
                     <button
                       onClick={() => {
                         closeSlingModal();
-                        setTimeout(() => scrollToSection('home'), 100);
+                        setTimeout(() => scrollToSection('careers'), 100);
                       }}
-                      className="flex-1 px-6 py-3 border border-yellow-500/50 rounded-lg font-sans font-medium hover:bg-yellow-500/10 transition-all duration-300 flex items-center justify-center space-x-2"
+                      className="flex-1 px-4 py-3 border border-yellow-500/50 rounded-lg font-sans font-medium hover:bg-yellow-500/10 transition-all duration-300 flex items-center justify-center space-x-2 text-sm"
                     >
                       <ArrowLeft className="w-4 h-4" />
-                      <span>Back to Home</span>
+                      <span>View Careers</span>
                     </button>
-                    <a
-                      href="https://forms.zohopublic.com/anchorfitng1/form/RecruitmentForm/formperma/y3LpDxfwkExQg2gh_pnYHuf5CjToKESExIH88j5om38"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-700 rounded-lg font-sans font-medium hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                    <button
+                      onClick={handleApplyNow}
+                      className="flex-1 px-4 py-3 bg-gradient-to-r from-yellow-600 to-yellow-700 rounded-lg font-sans font-medium hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 text-sm"
                     >
                       <span>Apply Now</span>
                       <ChevronRight className="w-4 h-4" />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -393,7 +392,6 @@ export default function MBASInvestment() {
                   />
                 </div>
               </div>
-             
             </button>
 
             <div className="hidden md:flex space-x-1">
