@@ -188,7 +188,7 @@ export default function MBASInvestment() {
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-yellow-500 mt-1 flex-shrink-0" />
                 <a href="mailto:mbasinvestmentitd@gmail.com" className="hover:text-yellow-500 transition-colors">
-                  mbasinvestmentitd@gmail.com
+                  mbasinvestmentltd@gmail.com
                 </a>
               </div>
               <div className="flex items-start space-x-3">
