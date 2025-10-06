@@ -187,7 +187,7 @@ export default function MBASInvestment() {
             <div className="space-y-4 text-gray-400">
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-yellow-500 mt-1 flex-shrink-0" />
-                <a href="mailto:mbasinvestmentitd@gmail.com" className="hover:text-yellow-500 transition-colors">
+                <a href="mailto:mbasinvestmentltd@gmail.com" className="hover:text-yellow-500 transition-colors">
                   mbasinvestmentltd@gmail.com
                 </a>
               </div>
@@ -1009,7 +1009,7 @@ export default function MBASInvestment() {
             <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
             <div className="relative bg-black/80 backdrop-blur-xl border border-gray-600/30 rounded-2xl p-8 md:p-10">
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <a href="mailto:mbasinvestmentitd@gmail.com" className="group/item relative overflow-hidden block">
+                <a href="mailto:mbasinvestmentltd@gmail.com" className="group/item relative overflow-hidden block">
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
                   <div className="relative bg-black/40 border border-gray-600/20 rounded-xl p-6 group-hover/item:border-yellow-500/50 transition-all duration-300">
                     <div className="w-12 h-12 bg-gradient-to-br from-yellow-600/20 to-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
@@ -1018,7 +1018,7 @@ export default function MBASInvestment() {
                     <h3 className="text-lg font-sans font-medium mb-1 tracking-wide">Email Us</h3>
                     <p className="text-sm text-gray-400 mb-2 font-sans font-light">Get in touch via email</p>
                     <p className="text-yellow-400 font-sans font-medium flex items-center space-x-2 tracking-wide">
-                      <span>mbasinvestmentitd@gmail.com</span>
+                      <span>mbasinvestmentltd@gmail.com</span>
                       <ExternalLink className="w-4 h-4" />
                     </p>
                   </div>
