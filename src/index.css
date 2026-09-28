@@ -1,1 +1,162 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cloth: #0d0c0a;
+  --color-cloth-2: #15130f;
+  --color-cloth-3: #1e1b15;
+  --color-rule: #3b3428;
+  --color-rule-soft: #2a251d;
+  --color-foil: #c8a24b;
+  --color-foil-bright: #e0c27a;
+  --color-foil-deep: #9a7a33;
+  --color-ink: #f2eee6;
+  --color-ink-2: #c9c1b2;
+  --color-ink-3: #a39b8c;
+
+  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
+  --font-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  font-size: 112.5%; /* 18px base */
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  color-scheme: dark;
+  background: var(--color-cloth);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cloth);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--color-foil); color: var(--color-cloth); }
+
+:focus-visible {
+  outline: 3px solid var(--color-foil-bright);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a { text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+
+html { scrollbar-color: var(--color-rule) var(--color-cloth); }
+input, textarea { caret-color: var(--color-foil); }
+
+.tabular { font-variant-numeric: tabular-nums lining-nums; }
+
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* ---------- Foil rule: the report's one motif ---------- */
+.foil-rule {
+  display: block;
+  height: 1px;
+  background: var(--color-foil);
+  transform-origin: left center;
+}
+
+/* ---------- Reveals (replay each time an element re-enters the viewport) ---------- */
+.js-motion .foil-rule[data-draw] {
+  transform: scaleX(0);
+  transition: transform 1100ms var(--ease-out-expo) var(--d, 0ms);
+}
+.js-motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 800ms var(--ease-out-expo) var(--d, 0ms),
+    transform 1000ms var(--ease-out-expo) var(--d, 0ms);
+}
+.js-motion .foil-rule[data-draw].is-in { transform: scaleX(1); }
+.js-motion [data-reveal].is-in { opacity: 1; transform: none; }
+/* Reset instantly while off screen, so the next arrival plays from the start */
+.js-motion [data-reveal]:not(.is-in),
+.js-motion .foil-rule[data-draw]:not(.is-in) { transition-duration: 1ms; transition-delay: 0ms; }
+
+/* Leader line in the contents list */
+.leader {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 1px dotted var(--color-rule);
+  transform: translateY(-0.3em);
+}
+
+/* ---------- Emblem: one foil sheen each time the cover arrives ---------- */
+@keyframes foil-sheen {
+  from { transform: translateX(-120%) skewX(-18deg); }
+  to { transform: translateX(260%) skewX(-18deg); }
+}
+.emblem { position: relative; overflow: hidden; isolation: isolate; }
+.emblem::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgb(255 236 190 / 0.3), transparent);
+  mix-blend-mode: screen;
+  transform: translateX(-120%) skewX(-18deg);
+  pointer-events: none;
+}
+.emblem.is-in::after { animation: foil-sheen 1600ms var(--ease-out-expo) 700ms 1 both; }
+
+/* ---------- Project showcase ---------- */
+.slide-img {
+  opacity: 0;
+  transform: scale(1.06);
+  transition:
+    opacity 900ms var(--ease-out-expo),
+    transform 7000ms linear;
+}
+.slide-img.is-active { opacity: 1; transform: scale(1); }
+
+@keyframes slide-text-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.slide-text-in > * { animation: slide-text-in 700ms var(--ease-out-expo) both; }
+.slide-text-in > *:nth-child(2) { animation-delay: 90ms; }
+.slide-text-in > *:nth-child(3) { animation-delay: 180ms; }
+.slide-text-in > *:nth-child(4) { animation-delay: 270ms; }
+
+@keyframes showcase-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.showcase-progress { transform-origin: left center; animation: showcase-progress 7000ms linear both; }
+
+/* ---------- FAQ disclosure ---------- */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms var(--ease-out-expo);
+}
+.faq-panel[data-open="true"] { grid-template-rows: 1fr; }
+.faq-panel > div { overflow: hidden; }
+
+/* ---------- Mobile menu ---------- */
+@keyframes sheet-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+.sheet-in { animation: sheet-in 250ms var(--ease-out-expo) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .sheet-in, .slide-text-in > * { animation: none; }
+  .emblem::after { display: none; }
+  .js-motion .foil-rule[data-draw],
+  .js-motion [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .slide-img { transform: none; }
+  .faq-panel { transition: none; }
+  *, *::before, *::after { transition-duration: 1ms !important; }
+}
